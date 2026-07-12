@@ -33,7 +33,7 @@ document.getElementById('formSimulacao')?.addEventListener('submit',e=>{
   const prazo=document.getElementById('prazo').value.trim()||'Não informado';
   const lance=document.getElementById('lance').value.trim()||'Não informado';
   const msg=`Olá Luiz! Acessei o site da 3L Investimentos e gostaria de uma consultoria.\n\nNome: ${nome}\nWhatsApp: ${telefone}\nObjetivo: ${objetivo}\nValor desejado: ${valor}\nPrazo: ${prazo}\nLance disponível: ${lance}`;
-  window.open(`https://wa.me/5547997058728?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+  window.open(`https://wa.me/5547997058729?text=${encodeURIComponent(msg)}`,'_blank','noopener');
 });
 
 document.getElementById('ano').textContent=new Date().getFullYear();

@@ -237,3 +237,74 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   }
   .legacy-trust-grid div:last-child{border-bottom:0}
 }
+
+
+/* Legacy 6.0 Preview */
+:root{
+  --gold-soft:#f0c96a;
+}
+.hero{
+  min-height:760px;
+}
+.hero-overlay{
+  background:
+    linear-gradient(90deg,#02070d 0%,rgba(2,7,13,.97) 44%,rgba(2,7,13,.52) 76%,rgba(2,7,13,.18) 100%);
+}
+.hero h1{
+  text-wrap:balance;
+  max-width:1050px;
+}
+.hero-actions .btn{
+  min-width:210px;
+}
+.btn-gold{
+  box-shadow:0 12px 32px rgba(220,163,38,.20);
+}
+.btn-gold:hover{
+  box-shadow:0 16px 42px rgba(220,163,38,.30);
+}
+.objetivo,.pilar,.passo,.form-card{
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+.objetivo:hover,.pilar:hover,.passo:hover{
+  transform:translateY(-5px);
+}
+.pilar:hover,.passo:hover{
+  border-color:rgba(220,163,38,.55);
+  box-shadow:0 18px 45px rgba(4,18,33,.13);
+}
+.legacy6-signature{
+  background:#fff;
+  padding:34px 0;
+  text-align:center;
+  border-top:1px solid #edf0f3;
+  border-bottom:1px solid #edf0f3;
+}
+.legacy6-signature p{
+  margin:0;
+  color:var(--navy);
+  font-size:clamp(1.15rem,2vw,1.65rem);
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+.whatsapp-float{
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.whatsapp-float:hover{
+  transform:translateY(-4px) scale(1.04);
+  box-shadow:0 16px 38px rgba(37,211,102,.32);
+}
+@media(max-width:620px){
+  .hero{
+    min-height:740px;
+  }
+  .hero h1{
+    font-size:2.35rem;
+  }
+  .hero-text{
+    font-size:.94rem;
+  }
+  .hero-actions .btn{
+    min-width:0;
+  }
+}
