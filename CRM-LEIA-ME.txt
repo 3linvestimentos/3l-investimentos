@@ -1,0 +1,21 @@
+CRM 3L INVESTIMENTOS — PRIMEIRA VERSÃO
+
+Acesso: abra crm/index.html pelo mesmo servidor do site.
+Usuário inicial: admin
+Senha inicial: 3L2026
+
+IMPORTANTE:
+Esta versão funciona no navegador e salva os leads no armazenamento local (localStorage). Isso permite testar todo o fluxo sem mensalidade e sem configurar servidor. Os dados ficam apenas no navegador/dispositivo usado.
+
+Para uso definitivo em equipe e com backup online, a próxima etapa é conectar a mesma interface ao Supabase, ativar autenticação real, banco de dados e regras de segurança. Não publique a senha de demonstração como se fosse segurança definitiva.
+
+Recursos incluídos:
+- Captura automática do formulário antes de abrir o WhatsApp
+- Cadastro e edição manual
+- Funil por status
+- Agenda de retornos
+- Pesquisa e filtros
+- Métricas e conversão
+- Botão direto para WhatsApp
+- Exportação CSV
+- Layout responsivo
