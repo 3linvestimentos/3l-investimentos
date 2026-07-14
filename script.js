@@ -1,44 +1,21 @@
-const intro=document.getElementById('intro');
-window.addEventListener('load',()=>setTimeout(()=>intro?.classList.add('hide'),1250));
-
-const menuToggle=document.getElementById('menuToggle');
-const menu=document.getElementById('menu');
-menuToggle?.addEventListener('click',()=>{
-  const aberto=menu.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded',String(aberto));
-});
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('splash')?.classList.add('hide'),1300));
+window.addEventListener('scroll',()=>document.getElementById('header')?.classList.toggle('scrolled',window.scrollY>28));
+const toggle=document.getElementById('menuToggle'),menu=document.getElementById('menu');
+toggle?.addEventListener('click',()=>menu.classList.toggle('open'));
 menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-const tipo=document.getElementById('tipo');
-document.querySelectorAll('.objetivo').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.objetivo').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
-    btn.classList.add('active');btn.setAttribute('aria-pressed','true');
-    tipo.value=btn.dataset.objetivo;
-    document.getElementById('simulacao').scrollIntoView({behavior:'smooth'}); setTimeout(()=>document.getElementById('nome')?.focus(),650);
-  });
-});
-
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.getElementById('ano').textContent=new Date().getFullYear();
 document.getElementById('formSimulacao')?.addEventListener('submit',e=>{
   e.preventDefault();
-  const nome=document.getElementById('nome').value.trim();
-  const telefone=document.getElementById('telefone').value.trim();
-  const objetivo=tipo.value;
-  const valor=document.getElementById('valor').value.trim();
-  const prazo=document.getElementById('prazo').value.trim()||'Não informado';
-  const lance=document.getElementById('lance').value.trim()||'Não informado';
-  const msg=`Olá Luiz! Acessei o site da 3L Investimentos e gostaria de uma consultoria.\n\nNome: ${nome}\nWhatsApp: ${telefone}\nObjetivo: ${objetivo}\nValor desejado: ${valor}\nPrazo: ${prazo}\nLance disponível: ${lance}`;
+  const msg=[
+    'Olá! Quero receber uma simulação da 3L Investimentos.',
+    '',
+    `Nome: ${document.getElementById('nome').value.trim()}`,
+    `WhatsApp: ${document.getElementById('telefone').value.trim()}`,
+    `E-mail: ${document.getElementById('email').value.trim()||'Não informado'}`,
+    `Valor desejado: ${document.getElementById('valor').value.trim()}`,
+    `Tipo de consórcio: ${document.getElementById('tipo').value}`
+  ].join('\n');
   window.open(`https://wa.me/5547997058729?text=${encodeURIComponent(msg)}`,'_blank','noopener');
-});
-
-document.getElementById('ano').textContent=new Date().getFullYear();
-
-const topo=document.querySelector('.topo');
-window.addEventListener('scroll',()=>{
-  topo?.classList.toggle('scrolled',window.scrollY>24);
 });
